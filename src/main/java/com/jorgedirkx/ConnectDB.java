@@ -16,11 +16,11 @@ public class ConnectDB {
         try(Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/thorius_db?serverTimezone=UTC","root","Doreen1");
 
-            Statement statement = conn.createStatement()){
+            /*Statement statement = conn.createStatement()){
             int result = statement.executeUpdate(sqlUpdate);
-            int result2 = statement.executeUpdate(sqlAddData);
+            int result2 = statement.executeUpdate(sqlAddData); */
 
-            /*
+
             //resultset can be read all directions and resultset can be updated
             Statement statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 
@@ -31,19 +31,21 @@ public class ConnectDB {
                 String name = rs.getString("name");
                 System.out.format("%s\n", name);
 
-                rs.close();
+
 
 
         }
+            rs.close();
 
-             */
+
 
         System.out.println("connection OK");
 
 
         }
         catch (Exception e){
-            System.out.println("debug !, something went wrong");
+            e.printStackTrace();
+            /*System.out.println("debug !, something went wrong");*/
 
         }
     }
